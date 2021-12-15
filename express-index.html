@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="#">
+    <link rel="stylesheet" href="style.css">
+    <title>Create Posts With Comments and pull from my own server</title>
+</head>
+
+<body>
+    <button type="submit" id="showPosts" class="showPosts">Show Posts</button>
+    <div class="main-container hide-main-container" id="mainContainer">
+        <!-- <div class="post-comment-container">
+            <div class="post">
+                <div class="title">Title of the post</div>
+                <div class="body-post">Body of the Post Lorem ipsum dolor sit amet consectetur, adipisicing elit. Esse iste corporis ut ducimus amet nostrum ipsa aut porro eum mollitia, nobis rerum vero totam qui, est explicabo provident debitis. Odio.</div>
+                <div class="btn-post-flex">
+                    <button type="submit" class="btn-show-comments">Show Comments</button>
+                </div>
+            </div>
+            <div class="comment-container" id="idfromAPI-not from here">
+                <div class="comment-box">
+                    <div class="name">Jack Amsterdam</div>
+                    <div class="email">jackAmsterdam@gmail.com</div>
+                    <div class="body-comment">Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae, laboriosam repudiandae, excepturi, ullam repellendus voluptatibus voluptates at ratione id recusandae magni dolor provident? Quisquam quidem, officia asperiores eius
+                        ut provident.</div>
+                </div>
+                <div class="comment-box">
+                    <div class="name">Jack Amsterdam</div>
+                    <div class="email">jackAmsterdam@gmail.com</div>
+                    <div class="body-comment">Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae, laboriosam repudiandae, excepturi, ullam repellendus voluptatibus voluptates at ratione id recusandae magni dolor provident? Quisquam quidem, officia asperiores eius
+                        ut provident.</div>
+                </div>
+                <div class="comment-box">
+                    <div class="name">Jack Amsterdam</div>
+                    <div class="email">jackAmsterdam@gmail.com</div>
+                    <div class="body-comment">Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae, laboriosam repudiandae, excepturi, ullam repellendus voluptatibus voluptates at ratione id recusandae magni dolor provident? Quisquam quidem, officia asperiores eius
+                        ut provident.</div>
+                </div>
+                <div class="btn-comment-flex">
+                    <button type="submit" class="btn-hide-comments">Hide Comments</button>
+                </div>
+            </div>
+        </div>
+        <div class="post-comment-container">
+            <div class="post">
+                <div class="title">{{Title of the post}}</div>
+                <div class="body-post">{{Body of the Post Lorem ipsum dolor sit amet consectetur, adipisicing elit. Esse iste corporis ut ducimus amet nostrum ipsa aut porro eum mollitia, nobis rerum vero totam qui, est explicabo provident debitis. Odio.}}</div>
+                <div class="btn-post-flex">
+                    <button type="submit" class="btn-show-comments">Show Comments</button>
+                </div>
+            </div>
+            <div class="comment-container" id={{{{{{}}}}}}>
+                <div class="comment-box">
+                    <div class="name">{{Jack Amsterdam}}</div>
+                    <div class="email">{{jackAmsterdam@gmail.com}}</div>
+                    <div class="body-comment">{{Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae, laboriosam repudiandae, excepturi, ullam repellendus voluptatibus voluptates at ratione id recusandae magni dolor provident? Quisquam quidem, officia asperiores
+                        eius ut provident.}}</div>
+                </div>
+                <div class="comment-box">
+                    <div class="name">{{Jack Amsterdam}}</div>
+                    <div class="email">{{jackAmsterdam@gmail.com}}</div>
+                    <div class="body-comment">{{Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae, laboriosam repudiandae, excepturi, ullam repellendus voluptatibus voluptates at ratione id recusandae magni dolor provident? Quisquam quidem, officia asperiores
+                        eius ut provident.}}</div>
+                </div>
+                <div class="comment-box">
+                    <div class="name">{{Jack Amsterdam}}</div>
+                    <div class="email">{{jackAmsterdam@gmail.com}}</div>
+                    <div class="body-comment">{{Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae, laboriosam repudiandae, excepturi, ullam repellendus voluptatibus voluptates at ratione id recusandae magni dolor provident? Quisquam quidem, officia asperiores
+                        eius ut provident.}}</div>
+                </div>
+                <div class="btn-comment-flex">
+                    <button type="submit" class="btn-hide-comments">Hide Comments</button>
+                </div>
+            </div> -->
+    </div>
+
+
+
+
+    <!-- FIRST PART  -->
+    <!-- first make html like this:  -->
+    <!-- Cant have id  -->
+    <!-- <div class="post-comment-container">
+        <div class="post">
+            <div class="title">Title of the post</div>
+            <div class="body-post">Body of the Post Lorem ipsum dolor sit amet consectetur, adipisicing elit. Esse iste corporis ut ducimus amet nostrum ipsa aut porro eum mollitia, nobis rerum vero totam qui, est explicabo provident debitis. Odio.</div>
+            <div class="btn-post-flex">
+                <button type="submit" class="btn-show-comments">Show Comments</button>
+            </div>
+        </div>
+        <div class="comment-container" id="id taken from API    not from here">
+        </div>
+    </div> -->
+
+    <!-- SECOND PART -->
+    <!-- <div class="comment-box">
+        <div class="name">Jack Amsterdam</div>
+        <div class="email">jackAmsterdam@gmail.com</div>
+        <div class="body-comment">Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae, laboriosam repudiandae, excepturi, ullam repellendus voluptatibus voluptates at ratione id recusandae magni dolor provident? Quisquam quidem, officia asperiores eius ut provident.</div>
+    </div>
+    <div class="comment-box">
+        <div class="name">Jack Amsterdam</div>
+        <div class="email">jackAmsterdam@gmail.com</div>
+        <div class="body-comment">Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae, laboriosam repudiandae, excepturi, ullam repellendus voluptatibus voluptates at ratione id recusandae magni dolor provident? Quisquam quidem, officia asperiores eius ut provident.</div>
+    </div>
+    <div class="comment-box">
+        <div class="name">Jack Amsterdam</div>
+        <div class="email">jackAmsterdam@gmail.com</div>
+        <div class="body-comment">Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae, laboriosam repudiandae, excepturi, ullam repellendus voluptatibus voluptates at ratione id recusandae magni dolor provident? Quisquam quidem, officia asperiores eius ut provident.</div>
+    </div> -->
+
+    <!-- Third Part attach button to end of container-->
+    <!-- <div class="btn-comment-flex">
+        <button type="submit" class="btn-hide-comments">Hide Comments</button>
+    </div> -->
+
+
+    <script src="app.js"></script>
+
+</body>
+
+</html>

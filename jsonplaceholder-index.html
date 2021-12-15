@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="#">
+    <link rel="stylesheet" href="style.css">
+
+    <title>Without express! can open on regular page (using jsonplaceholder)</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <button type="submit" id="showPosts" class="showPosts">Show Posts</button>
+    <div class="main-container hide-main-container" id="mainContainer">
+        <!-- <div class="post-comment-container">
+            <div class="post">
+                <div class="title">Title of the post</div>
+                <div class="body-post">Body of the Post Lorem ipsum dolor sit amet consectetur, adipisicing elit. Esse iste corporis ut ducimus amet nostrum ipsa aut porro eum mollitia, nobis rerum vero totam qui, est explicabo provident debitis. Odio.</div>
+                <div class="btn-post-flex">
+                    <button type="submit" class="btn-show-comments">Show Comments</button>
+                </div>
+            </div>
+            <div class="comment-container" id="idfromAPI-not from here">
+                <div class="comment-box">
+                    <div class="name">Jack Amsterdam</div>
+                    <div class="email">jackAmsterdam@gmail.com</div>
+                    <div class="body-comment">Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae, laboriosam repudiandae, excepturi, ullam repellendus voluptatibus voluptates at ratione id recusandae magni dolor provident? Quisquam quidem, officia asperiores eius
+                        ut provident.</div>
+                </div>
+                <div class="comment-box">
+                    <div class="name">Jack Amsterdam</div>
+                    <div class="email">jackAmsterdam@gmail.com</div>
+                    <div class="body-comment">Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae, laboriosam repudiandae, excepturi, ullam repellendus voluptatibus voluptates at ratione id recusandae magni dolor provident? Quisquam quidem, officia asperiores eius
+                        ut provident.</div>
+                </div>
+                <div class="comment-box">
+                    <div class="name">Jack Amsterdam</div>
+                    <div class="email">jackAmsterdam@gmail.com</div>
+                    <div class="body-comment">Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae, laboriosam repudiandae, excepturi, ullam repellendus voluptatibus voluptates at ratione id recusandae magni dolor provident? Quisquam quidem, officia asperiores eius
+                        ut provident.</div>
+                </div>
+                <div class="btn-comment-flex">
+                    <button type="submit" class="btn-hide-comments">Hide Comments</button>
+                </div>
+            </div>
+        </div>
+        <div class="post-comment-container">
+            <div class="post">
+                <div class="title">{{Title of the post}}</div>
+                <div class="body-post">{{Body of the Post Lorem ipsum dolor sit amet consectetur, adipisicing elit. Esse iste corporis ut ducimus amet nostrum ipsa aut porro eum mollitia, nobis rerum vero totam qui, est explicabo provident debitis. Odio.}}</div>
+                <div class="btn-post-flex">
+                    <button type="submit" class="btn-show-comments">Show Comments</button>
+                </div>
+            </div>
+            <div class="comment-container" id={{{{{{}}}}}}>
+                <div class="comment-box">
+                    <div class="name">{{Jack Amsterdam}}</div>
+                    <div class="email">{{jackAmsterdam@gmail.com}}</div>
+                    <div class="body-comment">{{Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae, laboriosam repudiandae, excepturi, ullam repellendus voluptatibus voluptates at ratione id recusandae magni dolor provident? Quisquam quidem, officia asperiores
+                        eius ut provident.}}</div>
+                </div>
+                <div class="comment-box">
+                    <div class="name">{{Jack Amsterdam}}</div>
+                    <div class="email">{{jackAmsterdam@gmail.com}}</div>
+                    <div class="body-comment">{{Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae, laboriosam repudiandae, excepturi, ullam repellendus voluptatibus voluptates at ratione id recusandae magni dolor provident? Quisquam quidem, officia asperiores
+                        eius ut provident.}}</div>
+                </div>
+                <div class="comment-box">
+                    <div class="name">{{Jack Amsterdam}}</div>
+                    <div class="email">{{jackAmsterdam@gmail.com}}</div>
+                    <div class="body-comment">{{Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae, laboriosam repudiandae, excepturi, ullam repellendus voluptatibus voluptates at ratione id recusandae magni dolor provident? Quisquam quidem, officia asperiores
+                        eius ut provident.}}</div>
+                </div>
+                <div class="btn-comment-flex">
+                    <button type="submit" class="btn-hide-comments">Hide Comments</button>
+                </div>
+            </div> -->
+    </div>
+
+
+
+
+    <!-- FIRST PART  -->
+    <!-- first make html like this:  -->
+    <!-- Cant have id  -->
+    <!-- <div class="post-comment-container">
+        <div class="post">
+            <div class="title">Title of the post</div>
+            <div class="body-post">Body of the Post Lorem ipsum dolor sit amet consectetur, adipisicing elit. Esse iste corporis ut ducimus amet nostrum ipsa aut porro eum mollitia, nobis rerum vero totam qui, est explicabo provident debitis. Odio.</div>
+            <div class="btn-post-flex">
+                <button type="submit" class="btn-show-comments">Show Comments</button>
+            </div>
+        </div>
+        <div class="comment-container" id="id taken from API    not from here">
+        </div>
+    </div> -->
+
+    <!-- SECOND PART -->
+    <!-- <div class="comment-box">
+        <div class="name">Jack Amsterdam</div>
+        <div class="email">jackAmsterdam@gmail.com</div>
+        <div class="body-comment">Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae, laboriosam repudiandae, excepturi, ullam repellendus voluptatibus voluptates at ratione id recusandae magni dolor provident? Quisquam quidem, officia asperiores eius ut provident.</div>
+    </div>
+    <div class="comment-box">
+        <div class="name">Jack Amsterdam</div>
+        <div class="email">jackAmsterdam@gmail.com</div>
+        <div class="body-comment">Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae, laboriosam repudiandae, excepturi, ullam repellendus voluptatibus voluptates at ratione id recusandae magni dolor provident? Quisquam quidem, officia asperiores eius ut provident.</div>
+    </div>
+    <div class="comment-box">
+        <div class="name">Jack Amsterdam</div>
+        <div class="email">jackAmsterdam@gmail.com</div>
+        <div class="body-comment">Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae, laboriosam repudiandae, excepturi, ullam repellendus voluptatibus voluptates at ratione id recusandae magni dolor provident? Quisquam quidem, officia asperiores eius ut provident.</div>
+    </div> -->
+
+    <!-- Third Part attach button to end of container-->
+    <!-- <div class="btn-comment-flex">
+        <button type="submit" class="btn-hide-comments">Hide Comments</button>
+    </div> -->
+
+
+
+
+
+
+
+
+
+
+
+
+    <script>
+        let startBtn
+        let mainContainer
+        document.onreadystatechange = () => {
+            if (document.readyState === 'complete') {
+                onInit()
+            }
+        }
+
+        function onInit() {
+            startBtn = document.querySelector('#showPosts')
+            startBtn.addEventListener('click', showPosts)
+            mainContainer = document.querySelector('#mainContainer')
+                // mainContainer.classList.add('hide-main-container')
+
+        }
+
+        function showPosts(e) {
+            mainContainer.innerHTML = ''
+            mainContainer.classList.add('hide-main-container') //is this good? without for one second you see blue line until everything is fetched
+            fetch('https://jsonplaceholder.typicode.com/posts')
+                .then(response => response.json())
+                .then(data => {
+                    onPostsReceived(data)
+                })
+        }
+
+        function onPostsReceived(data) {
+            mainContainer.classList.remove('hide-main-container')
+                //We want the title and the body
+            console.log(data[0])
+            data.map(post => {
+
+                console.log(post.title)
+                console.log(post.body)
+                let postContent = `
+                <div class="post-comment-container">
+                   <div class="post">
+                   <!-- Cant have id  -->
+                     <div class="title">${post.title}</div>
+                     <div class="body-post">${post.body}</div>
+                    <div class="btn-post-flex">
+                      <button type="submit" class="btn-show-comments" onclick="fetchComments(${post.id})">Show Comments</button>
+                    </div>
+                   </div>
+                <div class="comment-container hide-comments" id="${post.id}">
+                </div>
+                </div>
+            `
+                mainContainer.innerHTML += postContent
+            })
+        }
+
+
+
+
+        function fetchComments(id) {
+            console.log('id', id)
+            let commentContainer = document.getElementById(id) //you can't have this globally cause doent exist in beginning
+            commentContainer.classList.remove('hide-comments')
+
+            fetch(`https://jsonplaceholder.typicode.com/posts/${id}/comments`)
+                .then(response => response.json())
+                .then(data => {
+                    onCommentsReceived(data, id)
+                })
+
+        }
+
+        function onCommentsReceived(data, id) {
+            console.log('data', data)
+            let commentContainer = document.getElementById(id)
+            commentContainer.innerHTML = ''
+            console.log('commentContainer', commentContainer)
+
+            data.map(comment => {
+                console.log("comment", comment);
+                console.log("comment.name", comment.name);
+                console.log("comment.email", comment.email);
+                console.log("comment.body", comment.body);
+
+                let commentContent = `
+               <div class="comment-box">
+                 <div class="name">${comment.name}</div>
+                 <div class="email">${comment.email}</div>
+                 <div class="body-comment">${comment.body}</div>
+               `
+                commentContainer.innerHTML += commentContent
+            })
+
+            let hideBtnComment = `
+                <div class="btn-comment-flex">
+                  <button type="submit" class="btn-hide-comments" onclick="hideComments(${id})">Hide Comments</button>
+                </div>
+            `
+            commentContainer.innerHTML += hideBtnComment
+        }
+
+        function hideComments(id) {
+            console.log('id', id)
+            let commentContainer = document.getElementById(id)
+            commentContainer.classList.add('hide-comments')
+        }
+    </script>
+</body>
+
+</html>

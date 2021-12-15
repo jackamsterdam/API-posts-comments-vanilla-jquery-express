@@ -1,0 +1,19 @@
+{
+    "name": "jsonplaceholder-with-my-own-server-hw-redo",
+    "version": "1.0.0",
+    "description": "",
+    "main": "app.js",
+    "scripts": {
+        "start": "node express",
+        "dev": "nodemon express"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "express": "^4.17.1"
+    },
+    "devDependencies": {
+        "nodemon": "^2.0.15"
+    }
+}

@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practicce for dec exam jquery ajax from typicode posts ccommetns you have it saved in postmn as well</title>
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <link rel="shortcut icon" href="#" type="image/x-icon">
+    <style>
+        body {
+    background-color: antiquewhite;
+}
+
+.btn-to-grab-posts {
+    cursor: pointer;
+    transform: scale(0.98);
+    border-radius: 8px;
+    background-color: lightcoral;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    border: 1px solid;
+    padding: 5px;
+    margin-top: 10px;
+     /* max-width: 750px; */
+    /* max-width: 300px;
+    min-width: 100px; */
+}
+
+.posts-comments-box {
+    border: 5px solid rgb(124, 5, 25);
+    padding: 5px;
+    margin: 10px;
+
+   
+}
+
+.posts {
+    border: 1px solid;
+    padding: 5px;
+}
+
+.title-post {
+    font-family: fantasy;
+}
+
+.get-comments-btn {
+    cursor: pointer;
+    transform: scale(0.98);
+    border-radius: 8px;
+    background-color: aqua;
+}
+
+.btn-to-grab-comments {
+    display: flex;
+    justify-content: flex-end;
+    /* text-align: right; */
+}
+
+.comments-box {
+    border: 5px solid blue;
+    padding: 5px;
+    font-size: small;
+}
+
+.btn-to-close-comments {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.close-comments-btn {
+    cursor: pointer;
+    transform: scale(0.98);
+    border-radius: 8px;
+    background-color: red;
+}
+
+.comments {
+    border: 1px solid;
+    padding: 5px;
+    margin: 5px;
+}
+
+    </style>
+</head>
+
+<body>
+
+    <h1>Posts and comments</h1>
+
+
+    <button type="submit" id="btnPosts" class="btn-to-grab-posts">Click to grab all posts</button>
+
+    <!-- structure:  -->
+
+    <div class="container">
+        <div class="posts-comments-box">
+            <div class="posts">
+                <div class="title-post">Whats for dinner</div>
+                <div class="body-post">Dinner is served with lobsters and shrimp</div>
+                <div class="btn-to-grab-comments">
+                    <button type="button" class="get-comments-btn">Get Comments</button>
+                </div>
+
+            </div>
+            <div class="comments-box">
+                <div class="comments">
+                    <div class="name-comment">jack</div>
+                    <div class="email-comment">jack@gmail.com</div>
+                    <div class="body-comment">I know shrimp is not Kosher so I wont be eating</div>
+                </div>
+                <div class="comments">
+                    <div class="name-comment">2222jack</div>
+                    <div class="email-comment">2222jack@gmail.com</div>
+                    <div class="body-comment">2222I know shrimp is not Kosher so I wont be eating</div>
+                </div>
+                <div class="btn-to-close-comments">
+                    <button type="button" class="close-comments-btn">Close Comments</button>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js" integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30=" crossorigin="anonymous"></script>
+    <script src="app.js"></script>
+    <script>
+        $(() => {
+
+            $('#btnPosts').click(function() {
+                grabPostsFromServer()
+            })
+
+            function grabPostsFromServer() {
+                $.ajax({
+                        url: 'https://jsonplaceholder.typicode.com/posts/',
+                        method: 'GET'
+
+                    })
+                    .then((data) => {
+                        onPostsReceived(data)
+                    })
+            }
+
+            function onPostsReceived(data) {
+                console.log(data)
+                $('.container').html('')
+
+                data.map(post => {
+                    let { title, body, id} = post
+                    // console.log("body", body);
+                    // console.log("title", title);
+               $(`<div class="posts-comments-box">
+                 <div class="posts">
+                   <div class="title-post">${title}</div>
+                   <div class="body-post">${body}</div>
+                   <div class="btn-to-grab-comments">
+                      <button type="button" class="get-comments-btn" id=${id}>Get Comments</button>
+                  </div>
+               
+
+                </div>
+                </div>`).appendTo($('.container'))
+            
+                    
+              })
+
+             
+
+              $('.get-comments-btn').click(function(event) {
+                  console.log('event.target',event.target)
+                  console.log('event.currentTarget',event.currentTarget)
+                  console.log('event.target.id',event.target.id)
+
+                  
+                grabComments(event.target.id)
+              })
+
+//pay attention this has to be at the end of this function to work!!
+            }
+
+           
+
+function grabComments(id) {
+  // $('#' + id).unbind('click'); this code will prevent it from being clicked twice but where should I put the click back? because the second time they click it won't work but I can't add a click anymore to something that was created after the fact. So how and where should I put the click back.
+
+  $.ajax({
+      url: `https://jsonplaceholder.typicode.com/posts/${id}/comments`,
+      method: 'GET'
+  })
+  .then((data) => {
+      onCommentsReceived(data,id)
+  })
+}
+
+
+
+
+function onCommentsReceived(data,id) {
+
+let $btnPassed = $('#' +id)
+    console.log("$btnPassed", $btnPassed);
+    console.log("$btnPassed.html()", $btnPassed.html());
+    console.log("$btnPassed.parent()", $btnPassed.parent()); //div.btn-to-grab-comments
+    console.log("$btnPassed.parent().parent()", $btnPassed.parent().parent()); //div.posts
+    console.log("$btnPassed.parent().parent().parent()", $btnPassed.parent().parent().parent()); //div.posts-comments-box
+     console.log("$btnPassed.closest()", $btnPassed.closest());
+     console.log("$btnPassed.next()", $btnPassed.next()); 
+     console.log("$btnPassed.find()", $btnPassed.find('.posts-comments-box')); 
+
+
+
+    let $commentsBox = $('<div>')
+        $commentsBox.addClass('comments-box')
+        
+  
+   data.map(comment => {
+       let {name, email, body} = comment
+    
+       $(`<div class="comments">
+                    <div class="name-comment">${name}</div>
+                    <div class="email-comment">${email}</div>
+                    <div class="body-comment">${body}</div>
+          </div>`).appendTo($commentsBox)
+   })
+
+   $(`<div class="btn-to-close-comments">
+         <button type="button" class="close-comments-btn">Close Comments</button>
+    </div>`).appendTo($commentsBox)
+
+ 
+    $btnPassed.parent().parent().parent().append($commentsBox)
+
+
+    //Btw in this function we are referring to one button only not many
+    $('.close-comments-btn').click(function(){
+        $(event.currentTarget).closest('.comments-box').hide()
+    })
+   
+}
+
+
+
+})
+
+ 
+    </script>
+</body>
+
+</html>

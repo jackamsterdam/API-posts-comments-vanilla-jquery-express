@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="#">
+    <link rel="stylesheet" href="style.css">
+
+    <title>jQuery option with createElement</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <button type="submit" id="showPosts" class="showPosts">Show Posts</button>
+    <div class="main-container hide-main-container" id="mainContainer">
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <!-- <script src="jqueryCreateElementex.js"></script> -->
+    <script>
+      $(() => {
+
+$('#showPosts').click(() => {
+    grabPostsFromServer()
+})
+
+
+
+function grabPostsFromServer() {
+    $('#mainContainer').html('')
+    $('#mainContainer').addClass('hide-main-container')
+
+    $.ajax({
+            url: 'https://jsonplaceholder.typicode.com/posts',
+            type: 'GET',
+            //   success:  onPostsReceived
+        })
+        .then((data) => {
+            onPostsReceived(data)
+        })
+}
+
+
+function onPostsReceived(data) {
+    $('#mainContainer').removeClass('hide-main-container')
+
+    data.map(post => {
+
+        let $postCommentContainer = $('<div>').addClass("post-comment-container")
+        let $post = $('<div>').addClass("post")
+        $postCommentContainer.append($post)
+
+
+        let $title = $('<div>').addClass('title').html(post.title)
+        let $bodyPost = $('<div>').addClass('body-post').html(post.body)
+        $post.append($title, $bodyPost)
+
+
+        let $btnPostFlex = $('<div>').addClass('btn-post-flex')
+        let $btn = $('<button>').attr({
+            type: 'submit',
+
+            // onclick: fetchComments.bind(null, post.id)
+
+        }).html('Show Comments').addClass('btn-show-comments')
+
+        $btn.click(() => {
+            fetchComments(post.id)
+        })
+
+        $btnPostFlex.append($btn)
+        $post.append($btnPostFlex)
+
+        let $commentContainer = $('<div>').addClass('comment-container').addClass('hide-comments').attr({
+            id: post.id
+        })
+
+        $post.append($commentContainer)
+        $('#mainContainer').append($postCommentContainer)
+    })
+}
+
+
+function fetchComments(id) {
+    console.log('hi')
+    console.log('id', id)
+    $('#' + id).removeClass('hide-comments')
+    console.log($('#' + id))
+    console.log($(`#${id}`))
+
+    $.ajax({
+            url: `https://jsonplaceholder.typicode.com/posts/${id}/comments`,
+            method: 'GET',
+            // success: function(data) {
+            //     onCommentsReceived(data, id)
+            // },
+        })
+        .then(data => {
+            onCommentsReceived(data, id)
+
+        })
+
+}
+
+function onCommentsReceived(data, id) {
+
+    $('#' + id).html('')
+
+
+    data.map(comment => {
+
+        let $commentBox = $('<div>')
+        $commentBox.addClass('comment-box')
+
+        let $nameComment = $('<div>')
+        $nameComment.addClass('name').html(comment.name)
+
+        let $emailComment = $('<div>')
+        $emailComment.addClass('email').html(comment.email)
+
+        let $bodyComment = $('<div>')
+        $bodyComment.addClass('body-comment').html(comment.body)
+
+        $commentBox.append($nameComment, $emailComment, $bodyComment)
+
+        $('#' + id).append($commentBox)
+    })
+
+
+    let $btnCommentFlex = $('<div>')
+    $btnCommentFlex.addClass('btn-comment-flex')
+
+    let $btn = $('<button>')
+    $btn.attr({
+        type: 'submit'
+    }).addClass('btn-hide-comments').html('Hide Comments')
+
+    $btn.click(() => {
+        hideComments(id)
+    })
+
+    $btnCommentFlex.append($btn)
+    $('#' + id).append($btnCommentFlex)
+
+}
+
+function hideComments(id) {
+    $('#' + id).addClass('hide-comments')
+
+}
+
+
+
+})
+
+
+
+
+    </script>
+</body>
+
+</html>
